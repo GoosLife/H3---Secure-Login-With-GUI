@@ -1,0 +1,24 @@
+﻿@page
+@model H3___Secure_Login_With_GUI.Pages.LoginPageModel
+@{
+}
+<p>@Model.LoginMessage</p>
+<p>@ViewData["error"]</p>
+<p>@Model.LoginMessageSuccess</p>
+<form method="post" id="login-form" asp-page-handler="Login" class="form m-2">
+	<div class="form-group">
+		<label for="username">Username</label>
+		<input type="text" id="username" asp-for="Login.Username" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label for="password">Password</label>
+		<input type="password" id="password" asp-for="Login.Password" class="form-control" />
+	</div>
+	<span id="login-error-message" class="text-danger">@Model.LoginError</span>
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary mt-2">Login</button>
+</form>
+<form method="get">
+	<button type="submit" class="btn btn-success mt-2" asp-page="/Register">Register</button></a>
+	</div>
+</form>

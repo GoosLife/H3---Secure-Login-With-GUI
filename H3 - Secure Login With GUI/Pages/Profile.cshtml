@@ -1,0 +1,19 @@
+﻿@page
+@model H3___Secure_Login_With_GUI.Pages.ProfileModel
+@{
+}
+
+<form method="post">
+    <input type="text" name="textInput" />
+    <button type="submit">Submit</button>
+</form>
+
+@if (Model.TextList != null && Model.TextList.Count > 0)
+{
+    foreach (var text in Model.TextList)
+    {
+        <div class="text-box">
+            <p>@text</p>
+        </div>
+    }
+}

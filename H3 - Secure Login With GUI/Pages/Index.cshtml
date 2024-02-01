@@ -1,0 +1,22 @@
+﻿@page
+@model IndexModel
+@{
+	ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+	<h1 class="display-4">Welcome</h1>
+	@{
+		/* Set the auth cookie when clicking this button by calling SetAuthCookíe() */
+		
+	}
+	<p>@Model.Message</p>
+
+	<form method="post">
+		<button type="submit"
+				class="btn btn-primary"
+				asp-page-handler="SetAuthCookie">
+			Click me to set auth cookie
+		</button>
+	</form>
+</div>
