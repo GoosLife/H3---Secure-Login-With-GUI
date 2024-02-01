@@ -47,7 +47,7 @@ namespace H3___Secure_Login_With_GUI.Pages
 
                 // Set a cookie in the browser with the name "auth" and the value of an authorization string
 				Response.Cookies.Append("auth", "authString");
-				Response.Cookies.Append("username", Register.Username);
+				Response.Cookies.Append("username", Register.User);
 
                 // Send user to the login page
                 return RedirectToPage("Index", "SuccessfulRegister");

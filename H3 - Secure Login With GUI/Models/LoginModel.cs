@@ -6,7 +6,7 @@ namespace H3___Secure_Login_With_GUI.Models
 	{
 		[Required(ErrorMessage = "Invalid username.")]
 		[StringLength(20), MinLength(3)]
-		public string Username { get; set; }
+		public User User { get; set; }
 
 		[Required(ErrorMessage = "Invalid password.")]
 		[MinLength(8, ErrorMessage = "Invalid password.")]
@@ -14,9 +14,9 @@ namespace H3___Secure_Login_With_GUI.Models
 
 		public LoginModel() { }
 
-		public LoginModel(string username, string password)
+		public LoginModel(User user, string password)
 		{
-			Username = username;
+			User = user;
 			Password = password;
 		}
 	}
