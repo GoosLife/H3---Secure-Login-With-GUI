@@ -4,8 +4,8 @@ namespace H3___Secure_Login_With_GUI.DataAccess
 {
 	public interface IDbAccess
 	{
-		public Task CreateUser(LoginModel user);
-		public Task<User?> LogInUser(LoginModel login);
-		public Task<User?> GetUser(string username);
+		public Task CreateUser(string username, string password);
+		public Task<User?> LogInUser(string username, string password);
+		public void AddMemory(string username, string memory, string token);
 	}
 }

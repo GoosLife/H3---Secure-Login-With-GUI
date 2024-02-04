@@ -24,7 +24,8 @@
       "launchBrowser": true,
       "applicationUrl": "https://localhost:7193;http://localhost:5299",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "jwtKey": "nnY1KPoUEkHkOpBOQCeFpVxDjkH5HL9N5YxkHto+epiAa70h+ZYwhTLlgg9ylASUtBIixNVKOtnxMBQzWMPaJtQ1wpZnT0DhZ4vvwck71Jm1Y5R+EYNNB+6zSzw4KawASFLnILQxkW41WYCg2lTU7giQ8Xr0Dwt9VAk9C2wl7uBwR9i0qBJ11xJzv7TFEE1lWErgd8uRjlstLs4mhH1XufZ/Qi2bzKpCKy0vdci4e+nzXWXVp9/ocJfGmfvuwOQSxhK+2xxdbrZKBVm3vpElPoWhgS8VPHb4qs/cvNXM4fptPXDsTI50aqIvePQyWO5so/ywpJNdKu4CnZ08trSYzw=="
       }
     },
     "IIS Express": {

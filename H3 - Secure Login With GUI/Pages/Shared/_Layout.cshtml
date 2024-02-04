@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using H3___Secure_Login_With_GUI.Authentication
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -31,10 +32,12 @@
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Register">Register</a>
                             </li>
                         }
-                        @if (Context.Request.Cookies["auth"] != null) 
+                        @if (Context.Request.Cookies["auth"] != null)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Profile">@Context.Request.Cookies["username"]</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Profile">
+                                    @JwtAuthenticator.GetClaim(Context.Request.Cookies["auth"], Models.User.Claims.Username)
+                                </a>
                             </li>
                         }
                     </ul>
@@ -44,6 +47,7 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            @ViewData["debug"]
             @RenderBody()
         </main>
     </div>

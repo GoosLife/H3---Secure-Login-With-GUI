@@ -1,6 +1,8 @@
 using H3___Secure_Login_With_GUI.Middleware;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.CookiePolicy;
+using Microsoft.Extensions.Logging.Console;
+using System.Security.Cryptography;
 
 namespace H3___Secure_Login_With_GUI
 {
@@ -9,6 +11,12 @@ namespace H3___Secure_Login_With_GUI
 		public static void Main(string[] args)
 		{
 			var builder = WebApplication.CreateBuilder(args);
+
+			// Add console logging for debug purposes
+			if (builder.Environment.IsDevelopment())
+			{
+                builder.Logging.AddConsole();
+            }
 
 			// Add services to the container.
 			builder.Services.AddRazorPages();
@@ -89,7 +97,7 @@ namespace H3___Secure_Login_With_GUI
 
 			app.MapRazorPages();
 
-			app.Run();
+            app.Run();
 		}
 	}
 }

@@ -13,7 +13,7 @@ namespace H3___Secure_Login_With_GUI.Security
 		/// </summary>
 		/// <param name="value"></param>
 		/// <returns></returns>
-		public static string Encrypt(string value)
+		public static string Hash(string value)
 		{
 			using (var algorithm = new Rfc2898DeriveBytes(
 				value,

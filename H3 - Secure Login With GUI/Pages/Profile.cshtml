@@ -3,9 +3,58 @@
 @{
 }
 
+@Html.AntiForgeryToken()
+
+<script>
+    function postMemory() {
+        // Add a new memory div to the page
+        var textInput = document.getElementsByName("textInput")[0].value;
+
+        // Send the memory to the server
+        try {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/Profile?handler=AddMemory", true);
+            xhr.setRequestHeader("Content-Type", "application/json"); // Change content type to JSON
+            xhr.send(JSON.stringify({ text: textInput })); // Send data as JSON string
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        console.log("Memory added");
+                        addMemory(textInput);
+                    } else {
+                        addMemory("Error adding memory");
+                        throw new Error("Memory not added");
+                    }
+                }
+            };
+        }
+        catch (e) {
+            console.error("Error adding memory:", e);
+            return;
+        }
+    }
+
+    function addMemory(textInput) {
+        var memoryDiv = document.createElement("div");
+        memoryDiv.className = "text-box";
+        memoryDiv.innerHTML = "<p>" + textInput + "</p>";
+
+        // Prepend the memory to the list
+        var memoryList = document.getElementsByClassName("text-box");
+        if (memoryList.length > 0) {
+            memoryList[0].parentNode.insertBefore(memoryDiv, memoryList[0]);
+        } else {
+            document.body.appendChild(memoryDiv);
+        }
+
+        // Clear the input
+        document.getElementsByName("textInput")[0].value = "";
+    }
+</script>
+
 <form method="post">
-    <input type="text" name="textInput" />
-    <button type="submit">Submit</button>
+    <input type="text" name="textInput" onkeydown="if(event.keyCode === 13) { event.preventDefault(); postMemory(); }" />
+    <button type="submit" onclick="postMemory()">Add memory</button>
 </form>
 
 @if (Model.TextList != null && Model.TextList.Count > 0)

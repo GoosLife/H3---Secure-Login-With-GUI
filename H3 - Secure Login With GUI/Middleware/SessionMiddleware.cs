@@ -1,4 +1,6 @@
-﻿namespace H3___Secure_Login_With_GUI.Middleware
+﻿using H3___Secure_Login_With_GUI.Authentication;
+
+namespace H3___Secure_Login_With_GUI.Middleware
 {
 	public class SessionMiddleware
 	{
